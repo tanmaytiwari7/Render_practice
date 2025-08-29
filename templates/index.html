@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSat Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CYBERSAT TRACKER</h1>
+            <div class="header-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="SEARCH SATELLITE...">
+                    <button id="search-btn">SEARCH</button>
+                </div>
+                <div class="status-bar">
+                    <span id="connection-status">CONNECTED</span>
+                    <span id="time-display">--:--:--</span>
+                </div>
+            </div>
+        </div>
+          <div class="location-controls">
+            <input type="number" id="latitude" placeholder="Latitude" step="0.0001">
+            <input type="number" id="longitude" placeholder="Longitude" step="0.0001">
+            <button id="update-location">UPDATE LOCATION</button>
+        </div>
+        
+        <div class="search-results" id="search-results">
+            <div class="results-header">SEARCH RESULTS</div>
+            <div class="results-list" id="results-list"></div>
+        </div>
+        
+        <div class="main-content">
+            <div class="map-container">
+                <div id="satellite-map"></div>
+                <div class="map-overlay">
+                    <div class="satellite-info" id="satellite-info">
+                        <div class="info-header">SATELLITE DATA</div>
+                        <div class="info-content">
+                            <p>NAME: <span id="sat-name">--</span></p>
+                            <p>ID: <span id="sat-id">--</span></p>
+                            <p>LAT: <span id="sat-lat">--</span></p>
+                            <p>LON: <span id="sat-lon">--</span></p>
+                            <p>ALT: <span id="sat-alt">--</span> km</p>
+                            <p>VEL: <span id="sat-vel">--</span> km/s</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="console-container">
+                <div class="console-header">SYSTEM CONSOLE</div>
+                <div class="console" id="console">
+                    <div class="console-line">[SYSTEM] Initializing Cybersat Tracker...</div>
+                    <div class="console-line">[SYSTEM] Loading orbital data...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="refresh-controls">
+                <button id="refresh-btn">REFRESH DATA</button>
+                <span class="refresh-timer">AUTO REFRESH IN: <span id="refresh-timer">10</span>s</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/static/js/map.js"></script>
+</body>
+</html>
